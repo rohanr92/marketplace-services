@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, useLocation } from 'react-router';
+import { Outlet, useLocation, useNavigate } from 'react-router';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import NewHeader from '../AllPages/Security/NewHeader';
@@ -14,6 +14,8 @@ const Root = () => {
 
   const isHomePage = pathname === "/";
 
+  
+
 
     return (
         <div>
@@ -25,6 +27,7 @@ const Root = () => {
                 isHomePage ? (<Navbar></Navbar>) : (<NewHeader></NewHeader>)
             }
             <section className='min-h-screen'>
+                
                 <Outlet></Outlet>
                 <Toaster />
             </section>

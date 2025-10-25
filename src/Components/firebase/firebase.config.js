@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBrUFrqNlOynm8ZKI9m_RKapZci-0pgCHw",
-  authDomain: "marketplace-service-71802.firebaseapp.com",
-  projectId: "marketplace-service-71802",
-  storageBucket: "marketplace-service-71802.firebasestorage.app",
-  messagingSenderId: "365180832127",
-  appId: "1:365180832127:web:efb0258aaf92f24f03f24a"
+  apiKey: import.meta.env.VITE_apiKey, 
+  authDomain: import.meta.env.VITE_authDomain, 
+  projectId: import.meta.env.VITE_projectId, 
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId, 
+  appId: import.meta.env.VITE_appId, 
 };
 
 
