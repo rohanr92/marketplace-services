@@ -81,6 +81,7 @@ if (password.length < 6) {
     googleLogin()
     .then((result) => {
       setUser(result.user);
+      toast.success('Account Created SuccessFully')
       navigate('/')
     })
     .catch((error) => {
@@ -92,7 +93,7 @@ if (password.length < 6) {
   
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 py-[80px]">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 py-[80px] px-[15px]">
         <Container>
         <div className='place-items-center'>
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
@@ -209,7 +210,7 @@ if (password.length < 6) {
           <div>
             <button
               type="submit"
-              className="w-full py-3 px-4 text-lg font-semibold text-gray-900 bg-yellow-500 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition-colors"
+              className="w-full py-3 px-4 text-[13px] sm:text-lg font-semibold text-gray-900 bg-yellow-500 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition-colors"
             >
               Sign Up with Email
             </button>
@@ -230,7 +231,7 @@ if (password.length < 6) {
           <button
           onClick={googleSignUp}
             type="button"
-            className="w-full flex items-center justify-center py-3 px-4 text-lg font-semibold text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+            className="w-full flex items-center justify-center py-3 px-4 text-[13px] sm:text-lg font-semibold text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition-colors"
           >
             <FaGoogle className="w-5 h-5 mr-3 text-red-500" />
             Sign Up with Google
@@ -240,7 +241,7 @@ if (password.length < 6) {
        
         <p className="text-sm text-center text-gray-600">
           Already have an account?{' '}
-          <Link to="/auth/login" className="font-medium text-blue-600 hover:text-blue-500">
+          <Link to="/auth/login" className="font-medium text-yellow-500 hover:text-yellow-600">
             Log in
           </Link>
         </p>

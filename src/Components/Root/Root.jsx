@@ -26,7 +26,7 @@ const Root = () => {
             }
             <section className='min-h-screen'>
                 <Outlet></Outlet>
-                <Toaster position="top-right" />
+                <Toaster />
             </section>
             <Footer></Footer>
         </div>

@@ -40,7 +40,7 @@ const Forgot = () => {
 
 
     return (
-        <div className='bg-gray-100 min-h-screen'>
+        <div className='bg-gray-100 min-h-screen px-[13px]'>
 
             <div  className="flex items-center justify-center min-h-screen">
 
@@ -87,7 +87,7 @@ const Forgot = () => {
                           <div>
                             <button
                               type="submit"
-                              className="w-full py-3 px-4 text-lg font-semibold text-white bg-yellow-500 rounded-md hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2"
+                              className="w-full py-3 px-4 text-[13px] sm:text-lg font-semibold text-white bg-yellow-500 rounded-md hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2"
                             >
                               Submit
                             </button>

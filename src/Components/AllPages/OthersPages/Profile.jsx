@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import Container from '../../Container/Container';
 import { AuthContext } from '../../Provider/AuthContext';
 import { RxAvatar } from 'react-icons/rx';
+import toast from 'react-hot-toast';
 
 const Profile = () => {
   const { user, setUser, loading, updatedProfile } = useContext(AuthContext);
@@ -21,11 +22,11 @@ const Profile = () => {
     updatedProfile(user.displayName, user.photoURL)
       .then(() => {
         setEditMode(false);
-        alert("Profile updated successfully!");
+        toast.success("Profile updated successfully!");
       })
       .catch((err) => {
         console.error(err);
-        alert("Failed to update profile: " + err.message);
+        toast.error("Failed to update profile: " + err.message);
       });
   };
 

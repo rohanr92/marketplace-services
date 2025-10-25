@@ -28,7 +28,7 @@ const NewHeader = () => {
 
     const navMenu = (
   <>
-  <div className='space-x-6 text-[15px] font-medium text-black'>
+  <div className='space-x-6 text-[15px] sm:block flex flex-col font-medium text-black'>
 <NavLink to='/' >Home</NavLink>
 <NavLink  to='/all-services' >All Services</NavLink>
 <NavLink  to='/about' >About</NavLink>
@@ -86,7 +86,7 @@ const NewHeader = () => {
   {user ? (
     <button
       onClick={handleLogOut}
-      className="border cursor-pointer border-yellow-500 rounded-lg sm:px-4 py-2 hover:bg-yellow-500 hover:text-black text-[15px]"
+      className="border cursor-pointer border-yellow-500 rounded-lg px-2 sm:px-4 py-2 hover:bg-yellow-500 hover:text-black text-[15px]"
     >
       Sign Out
     </button>
@@ -94,13 +94,13 @@ const NewHeader = () => {
     <>
       <Link
         to="/auth/login"
-        className="px-3 py-2 text-[15px] cursor-pointer"
+        className=" sm:px-3 py-2 text-[15px] cursor-pointer"
       >
         Sign In
       </Link>
       <Link
         to="/auth/register"
-        className="border cursor-pointer border-yellow-500 rounded-lg sm:px-4 py-2 hover:bg-yellow-500 hover:text-black text-[15px]"
+        className="border cursor-pointer border-yellow-500 rounded-lg px-2 sm:px-4 py-2 hover:bg-yellow-500 hover:text-black text-[15px]"
       >
         Register
       </Link>

@@ -67,8 +67,8 @@ const DetailsPage = () => {
 
                             <div className='flex-1  sm:ml-[40px] ml-0 sm:mt-[10px] mt-[10px]'>
                                 <div className='space-y-[6px] pb-[20px] border-b-[2px] border-yellow-500 w-full'>
-                                    <h2 className='font-bold text-[32px] text-[#001931]'>{skillName}</h2>
-                                    <h2 className='font-medium text-gray-500 text-[18px]'>${price}.00 /hr</h2>
+                                    <h2 className='font-bold text-[20px] sm:text-[32px] text-[#001931]'>{skillName}</h2>
+                                    <h2 className='font-medium text-gray-500 text-[16px] sm:text-[18px]'>${price}.00 /hr</h2>
                                     <p className='font-inter text-[16px]'>
                                         Managed by <span className='font-semibold text-[16px] bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent'>{providerName}</span>
                                     </p>
@@ -78,21 +78,21 @@ const DetailsPage = () => {
                                 <div className='pt-[20px]'>
                                     <div className='sm:flex flex sm:gap-[60px] justify-between sm:justify-normal'>
                                         <div>
-                                            <h2 className='text-[40px] text-yellow-600 pb-[3px]'><FaEye /></h2>
-                                            <h2 className='text-[16px] font-normal text-[#001931]'>Total Views</h2>
-                                            <h2 className='font-extrabold text-[32px] text-[#001931]'>{views}+</h2>
+                                            <h2 className='text-[30px] sm:text-[40px] text-yellow-600 pb-[3px]'><FaEye /></h2>
+                                            <h2 className='text-[14px] sm:text-[16px] font-normal text-[#001931]'>Total Views</h2>
+                                            <h2 className='font-extrabold text-[22px] sm:text-[32px] text-[#001931]'>{views}+</h2>
                                         </div>
 
 
                                         <div>
-                                            <h2 className='text-[40px] text-[#FF8811] pb-[3px]'><FaStar /></h2>
-                                            <h2 className='text-[16px] font-normal text-[#001931]'>Average Ratings</h2>
-                                            <h2 className='font-extrabold text-[32px] text-[#001931]'>{rating}</h2>
+                                            <h2 className='text-[30px] sm:text-[40px] text-[#FF8811] pb-[3px]'><FaStar /></h2>
+                                            <h2 className='text-[14px] sm:text-[16px]  font-normal text-[#001931]'>Avg. Ratings</h2>
+                                            <h2 className='font-extrabold text-[22px] sm:text-[32px] text-[#001931]'>{rating}</h2>
                                         </div>
                                         <div>
-                                            <h2 className='text-[40px] text-yellow-600 pb-[3px]'><BiSolidLike /></h2>
-                                            <h2 className='text-[16px] font-normal text-[#001931]'>Total Reviews</h2>
-                                            <h2 className='font-extrabold text-[32px] text-[#001931]'>{Reviews}</h2>
+                                            <h2 className='text-[30px] sm:text-[40px]  text-yellow-600 pb-[3px]'><BiSolidLike /></h2>
+                                            <h2 className='text-[14px] sm:text-[16px]  font-normal text-[#001931]'>Total Reviews</h2>
+                                            <h2 className='font-extrabold text-[22px] text-[#001931]'>{Reviews}</h2>
                                         </div>
 
                                     </div>
@@ -105,7 +105,7 @@ const DetailsPage = () => {
                                     {!formData.submitted ? (
                                         <a
                                             href="#service-form"
-                                            className="btn btn-secondary text-[20px] font-semibold py-[24px] px-[24px] border-0 outline-0 shadow-none bg-yellow-500 hover:bg-black"
+                                            className="btn btn-secondary text-[16px] sm:text-[20px] font-semibold py-[24px] px-[24px] border-0 outline-0 shadow-none bg-yellow-500 hover:bg-black"
                                         >
                                             Book Now
                                         </a>
@@ -150,7 +150,7 @@ const DetailsPage = () => {
                                             type="text"
                                             id="productName"
                                             name="productName"
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
                                         />
                                     </div>
 
@@ -162,7 +162,7 @@ const DetailsPage = () => {
                                             type="text"
                                             id="productName"
                                             name="name"
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
                                         />
                                     </div>
 
@@ -175,7 +175,7 @@ const DetailsPage = () => {
                                             type="email"
                                             id="productName"
                                             name="email"
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
                                         />
                                     </div>
 
@@ -188,14 +188,14 @@ const DetailsPage = () => {
                                             type="address"
                                             id="address"
                                             name="address"
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
                                         />
                                     </div>
 
                                     <div>
                                         <button
                                             type="submit"
-                                            className="w-full px-6 py-3 text-white bg-blue-600 rounded-md font-semibold hover:bg-blue-700"
+                                            className="w-full px-6 py-3 text-white bg-yellow-500 rounded-md font-semibold hover:bg-yellow-600"
                                         >
                                             Submit Info
                                         </button>

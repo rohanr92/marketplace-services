@@ -95,13 +95,13 @@ const Header = () => {
     <>
       <Link
         to="/auth/login"
-        className="px-3 py-2 text-[15px] cursor-pointer"
+        className="mr-[2px] sm:mr-0 sm:px-3 py-2 text-[15px] cursor-pointer"
       >
         Sign In
       </Link>
       <Link
         to="/auth/register"
-        className="border cursor-pointer border-yellow-500 rounded-lg sm:px-4 py-2 hover:bg-yellow-500 hover:text-black text-[15px]"
+        className="border cursor-pointer border-yellow-500 rounded-lg px-2 sm:px-4 py-2 hover:bg-yellow-500 hover:text-black text-[15px]"
       >
         Register
       </Link>

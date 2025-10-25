@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import Footer from '../../Footer/Footer';
 import NewHeader from './NewHeader';
+import { Toaster } from 'react-hot-toast';
 
 
 const Auth = () => {
@@ -17,6 +18,7 @@ const Auth = () => {
            <main className='min-h-screen'>
 
        <Outlet></Outlet>
+        <Toaster />
            </main>
             
      
