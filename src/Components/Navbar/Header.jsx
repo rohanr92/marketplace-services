@@ -5,6 +5,7 @@ import Logo from "../../assets/logo.svg"
 import "./Header.css"
 import { AuthContext } from '../Provider/AuthContext';
 import { RxAvatar } from 'react-icons/rx';
+import toast from 'react-hot-toast';
 
 
 const Header = () => {
@@ -18,10 +19,11 @@ const Header = () => {
     logOut()
     .then(() => {
       setUser(null);
+      toast.success('Logged Out Sccessfully')
       navigate('/')
     }) 
     .catch((error) => {
-      alert(error.message);
+     toast.error(error.message);
     })
    }
 

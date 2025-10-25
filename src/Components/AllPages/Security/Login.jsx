@@ -3,6 +3,7 @@ import Container from '../../Container/Container';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { FaUser, FaLock } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthContext';
+import toast from 'react-hot-toast';
 
 const Login = () => {
 
@@ -29,10 +30,11 @@ const handleSubmit = (event) => {
       const users = userCredential.user;
       setUser(users);
       event.target.reset();
+      toast.success('Logged In Successfully');
       navigate(location?.state || '/');
     })
     .catch((error) => {
-      
+      toast.error('Logged In Successfully');
       setError("Invalid Email Or Password")
     })
   };

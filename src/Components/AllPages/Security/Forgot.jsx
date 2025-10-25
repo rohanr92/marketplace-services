@@ -1,6 +1,7 @@
 import React, { use, useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthContext';
+import toast from 'react-hot-toast';
 
 const Forgot = () => {
 
@@ -23,6 +24,7 @@ const Forgot = () => {
         .then(() => {
             e.target.reset();
             setMessage('Check your email to reset your password.');
+            toast.success('Check your email to reset your password.');
   })
   .catch((error) => {
     alert(error.message);

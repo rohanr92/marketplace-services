@@ -4,6 +4,7 @@ import useServices from '../../../Hook/useServices';
 import Container from '../../../Container/Container';
 import { FaEye, FaStar } from 'react-icons/fa';
 import { BiSolidLike } from 'react-icons/bi';
+import toast from 'react-hot-toast';
 // import { FaDownload } from 'react-icons/fa';
 
 
@@ -20,17 +21,18 @@ const DetailsPage = () => {
 
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const name = e.target.name.value;
-        // console.log(valueName);
-        setFormData({
-            name,
-            submitted: true,
-        }
+   const handleSubmit = (e) => {
+  e.preventDefault();
+  const name = e.target.name.value;
+  e.target.reset();
 
-        );
-    };
+  setFormData({
+    name,
+    submitted: true,
+  });
+
+  toast.success('Successfully Submitted')
+};
 
 
 
@@ -41,7 +43,7 @@ const DetailsPage = () => {
 
     const singleProducts = services?.find(element => element.skillId == skillId);
 
-    if (loading) return <p>No product found.</p>;
+    if (loading) return <span className="text-yellow-500 loading loading-infinity loading-xl "></span>;
 
     const { skillName, providerName, price, rating, category, Reviews, views, location, image, description } = singleProducts;
 
@@ -139,9 +141,9 @@ const DetailsPage = () => {
                                 </h2>
 
                                 <form onSubmit={handleSubmit}>
-                                    {/* Product Name */}
+                                   
                                     <div className="mb-5">
-                                        <label htmlFor="productName" className="block mb-2 text-sm font-medium text-gray-700">
+                                        <label  className="block mb-2 text-sm font-medium text-gray-700">
                                             Product Name
                                         </label>
                                         <input
@@ -153,7 +155,7 @@ const DetailsPage = () => {
                                     </div>
 
                                     <div className="mb-5">
-                                        <label htmlFor="productName" className="block mb-2 text-sm font-medium text-gray-700">
+                                        <label className="block mb-2 text-sm font-medium text-gray-700">
                                             Your Name
                                         </label>
                                         <input
@@ -166,7 +168,7 @@ const DetailsPage = () => {
 
 
                                     <div className="mb-5">
-                                        <label htmlFor="productName" className="block mb-2 text-sm font-medium text-gray-700">
+                                        <label className="block mb-2 text-sm font-medium text-gray-700">
                                             Your Email
                                         </label>
                                         <input
@@ -177,9 +179,9 @@ const DetailsPage = () => {
                                         />
                                     </div>
 
-                                    {/* Price */}
+                                   
                                     <div className="mb-6">
-                                        <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-700">
+                                        <label className="block mb-2 text-sm font-medium text-gray-700">
                                             Your Address
                                         </label>
                                         <input
@@ -190,7 +192,6 @@ const DetailsPage = () => {
                                         />
                                     </div>
 
-                                    {/* Submit Button */}
                                     <div>
                                         <button
                                             type="submit"

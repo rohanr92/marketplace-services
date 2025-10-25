@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router';
 import { FaUser, FaEnvelope, FaLock, FaGoogle, FaImage } from 'react-icons/fa6';
 import Container from '../../Container/Container';
 import { AuthContext } from '../../Provider/AuthContext';
+import toast from 'react-hot-toast';
 
 
 
@@ -41,19 +42,19 @@ const RegisterPage = () => {
 
 if (password.length < 6) {
     setError('Password must be at least 6 characters long.');
-    alert('Password must be at least 6 characters long.');
+    toast.error('Password must be at least 6 characters long.');
     return;
   }
 
   if (!/[A-Z]/.test(password)) {
     setError('Password must contain at least one uppercase letter.');
-    alert('Password must contain at least one uppercase letter.');
+    toast.error('Password must contain at least one uppercase letter.');
     return;
   }
 
   if (!/[a-z]/.test(password)) {
     setError('Password must contain at least one lowercase letter.');
-    alert('Password must contain at least one lowercase letter.');
+    toast.error('Password must contain at least one lowercase letter.');
     return;
   }
 
@@ -61,16 +62,17 @@ if (password.length < 6) {
     createUser(email, password)
       .then((result) => {
         setUser(result.user);
+         toast.success('Account Created Successfully');
         return updatedProfile(name, imageUrl);
       })
       .then(() => {
+       
         event.target.reset();
-        alert('Account Successfully Created');
         navigate('/');
       })
       .catch((error) => {
         setError(error.message);
-        alert(error.message);
+        toast.error(error.message);
       });
   }
   
@@ -82,7 +84,7 @@ if (password.length < 6) {
       navigate('/')
     })
     .catch((error) => {
-      alert(error.message)
+      toast.error(error.message)
     })
   }
 
