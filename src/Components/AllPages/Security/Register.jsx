@@ -8,12 +8,12 @@ import { AuthContext } from '../../Provider/AuthContext';
 
 const RegisterPage = () => {
 
-    const { user, setUser, createUser, googleLogin, loading } = use(AuthContext);
+    const { user, setUser, createUser, googleLogin, loading, updatedProfile } = use(AuthContext);
+    const [error, setError] = useState("");
     let navigate = useNavigate();
 
 
 
-  const [error, setError] = useState('');
 
 
 
@@ -36,31 +36,50 @@ const RegisterPage = () => {
     const imageUrl = event.target.imageUrl.value;
     const password = event.target.password.value;
 
+    // PassWord
+
+
+if (password.length < 6) {
+    setError('Password must be at least 6 characters long.');
+    alert('Password must be at least 6 characters long.');
+    return;
+  }
+
+  if (!/[A-Z]/.test(password)) {
+    setError('Password must contain at least one uppercase letter.');
+    alert('Password must contain at least one uppercase letter.');
+    return;
+  }
+
+  if (!/[a-z]/.test(password)) {
+    setError('Password must contain at least one lowercase letter.');
+    alert('Password must contain at least one lowercase letter.');
+    return;
+  }
+
+
     createUser(email, password)
-    .then((result) => {
-      setUser(result.user)
-      event.target.reset; 
-      alert('Account Successfully Created')
-      navigate('/profile')
-      
-    })
-    .catch((error) => {
-
-    const errorMessage = error.message;
-   
-    alert(errorMessage);
-
-  });
-
-    
-    
-  };
+      .then((result) => {
+        setUser(result.user);
+        return updatedProfile(name, imageUrl);
+      })
+      .then(() => {
+        event.target.reset();
+        alert('Account Successfully Created');
+        navigate('/');
+      })
+      .catch((error) => {
+        setError(error.message);
+        alert(error.message);
+      });
+  }
+  
 
     const googleSignUp = () => {
     googleLogin()
     .then((result) => {
       setUser(result.user);
-      navigate('/profile')
+      navigate('/')
     })
     .catch((error) => {
       alert(error.message)
@@ -179,7 +198,7 @@ const RegisterPage = () => {
 
       
           {error && (
-            <p className="text-sm text-red-600 text-center">
+            <p className="text-sm text-red-600 text-left">
               {error}
             </p>
           )}

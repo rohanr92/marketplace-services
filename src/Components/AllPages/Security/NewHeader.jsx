@@ -65,19 +65,49 @@ const NewHeader = () => {
      {navMenu}
     </ul>
   </div>
-  <div className="navbar-end text-black">
-{
-  user ? (<>
-  <RxAvatar className='text-[45px] mr-[10px] text-black' />
-  <button onClick={handleLogOut} className='border cursor-pointer border-yellow-500 rounded-lg sm:px-[35px] py-2 hover:bg-yellow-500 hover:text-black text-[15px]'>Sign Out</button>
-  </> ) : (<>
-  <Link to='/auth/login' className="px-3 py-2 text-[15px] cursor-pointer">Sign In</Link>
-<Link to='/auth/register' className="border cursor-pointer border-yellow-500 rounded-lg sm:px-[35px] py-2 hover:bg-yellow-500 hover:text-black text-[15px]">Register</Link>
-  
-  </>)    
-}
+<div className="navbar-end text-black flex items-center gap-3">
 
-  </div>
+
+  {user ? (
+    user.photoURL ? (
+      <img
+        src={user.photoURL}
+        alt="Profile"
+        className="w-12 h-12 rounded-full border-2 border-yellow-500 object-cover"
+      />
+    ) : (
+      <div className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-yellow-500 bg-gray-200">
+        <RxAvatar className="text-gray-400 w-6 h-6" />
+      </div>
+    )
+  ) : null}
+
+  
+  {user ? (
+    <button
+      onClick={handleLogOut}
+      className="border cursor-pointer border-yellow-500 rounded-lg sm:px-4 py-2 hover:bg-yellow-500 hover:text-black text-[15px]"
+    >
+      Sign Out
+    </button>
+  ) : (
+    <>
+      <Link
+        to="/auth/login"
+        className="px-3 py-2 text-[15px] cursor-pointer"
+      >
+        Sign In
+      </Link>
+      <Link
+        to="/auth/register"
+        className="border cursor-pointer border-yellow-500 rounded-lg sm:px-4 py-2 hover:bg-yellow-500 hover:text-black text-[15px]"
+      >
+        Register
+      </Link>
+    </>
+  )}
+</div>
+
   
 </div>
 

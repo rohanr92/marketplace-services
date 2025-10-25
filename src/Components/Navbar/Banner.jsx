@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import { Pagination } from 'swiper/modules';
+import { Link } from "react-router";
 
 const Banner = () => {
     useEffect(()=> {
@@ -54,7 +55,7 @@ const Banner = () => {
 
 
  
-      <div className="relative z-10 text-white w-10/12 mx-auto sm:mt-[80px]" data-aos="fade-up">
+      <div className="relative z-10 text-white w-10/12 mx-auto mt-[20px] sm:mt-[80px]" data-aos="fade-up">
         <p className="text-yellow-400 font-semibold text-lg mb-3">
           Creative Freelance Marketplace
         </p>
@@ -64,12 +65,12 @@ const Banner = () => {
         </h1>
 
         <div className="flex justify-center gap-4">
-          <button className="bg-yellow-500 cursor-pointer hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition">
+          <Link to='/about' className="bg-yellow-500 cursor-pointer hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition  text-[12px] sm:text-[18px]">
             Get Started
-          </button>
-          <button className="border border-white/70 cursor-pointer text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
+          </Link>
+          <Link to='/about' className="border border-white/70 cursor-pointer text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition   text-[12px] sm:text-[18px]">
             Learn More
-          </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -150,7 +151,7 @@ const Banner = () => {
         </h1>
 
         <div className="flex justify-center gap-4">
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition">
+          <button className="bg-yellow-500 text-[] hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition">
             Get Started
           </button>
           <button className="border border-white/70 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">

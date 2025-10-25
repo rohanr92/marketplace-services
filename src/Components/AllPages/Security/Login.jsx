@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import Container from '../../Container/Container';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { FaUser, FaLock } from 'react-icons/fa';
@@ -7,6 +7,7 @@ import { AuthContext } from '../../Provider/AuthContext';
 const Login = () => {
 
   const { user, setUser, login, loading } = use(AuthContext);
+   const [error, setError] = useState("");
 
   let location = useLocation();
   let navigate = useNavigate();
@@ -32,7 +33,7 @@ const handleSubmit = (event) => {
     })
     .catch((error) => {
       
-      // alert(error.message);
+      setError("Invalid Email Or Password")
     })
   };
 
@@ -118,6 +119,14 @@ const handleSubmit = (event) => {
               Forgot your password?
             </Link>
           </div>
+
+
+      
+          {error && (
+            <p className="text-sm text-red-600 text-left">
+              {error}
+            </p>
+          )}
 
          
           <div>

@@ -8,7 +8,7 @@ const Faqs = () => {
 
             <Container>
 
-                                    <div className="text-center mb-[40px]" data-aos="fade-up">
+                                    <div className="text-center mb-[40px]">
                         <span className="bg-yellow-500 font-semibold text-sm px-4 py-2 rounded-full">
                             General Questions
                         </span>
@@ -24,7 +24,7 @@ const Faqs = () => {
 
 
             </Container>
-            <div className='w-6/12 mx-auto' data-aos="fade-up">
+            <div className='w-full px-[20px] sm:w-6/12 mx-auto'>
 
             <div className="collapse collapse-plus bg-base-100 border border-base-300 mb-[10px]">
   <input type="radio" name="my-accordion-3" defaultChecked />

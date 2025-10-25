@@ -1,33 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 
 const auth = getAuth(app);
 
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
 
-    const provider = new  GoogleAuthProvider();
+    const provider = new GoogleAuthProvider();
     let [loading, setLoading] = useState(true)
 
 
     const [user, setUser] = useState(null);
-  
+
 
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
-        .finally(() => setLoading(false));
-        
+            .finally(() => setLoading(false));
+
     }
 
     const forgotPass = (email) => {
         setLoading(true);
-       return sendPasswordResetEmail(auth, email)
-       .finally(() => setLoading(false));
+        return sendPasswordResetEmail(auth, email)
+            .finally(() => setLoading(false));
     }
 
     useEffect(() => {
@@ -44,19 +44,26 @@ const AuthProvider = ({children}) => {
     const logOut = () => {
         setLoading(true);
         return signOut(auth)
-        .finally(() => setLoading(false));
+            .finally(() => setLoading(false));
     }
 
     const login = (email, password) => {
         setLoading(true);
-        return signInWithEmailAndPassword(auth ,email, password)
-        .finally(() => setLoading(false));
+        return signInWithEmailAndPassword(auth, email, password)
+            .finally(() => setLoading(false));
     }
 
     const googleLogin = () => {
         return signInWithPopup(auth, provider)
-        
+
     }
+
+    const updatedProfile = (name, imageURL, user = auth.currentUser) => {
+        return updateProfile(user, {
+            displayName: name,
+            photoURL: imageURL
+        });
+    };
 
     const authData = {
         user,
@@ -66,6 +73,7 @@ const AuthProvider = ({children}) => {
         login,
         googleLogin,
         forgotPass,
+        updatedProfile,
         loading,
     }
 

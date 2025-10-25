@@ -15,7 +15,7 @@ const NewLeft = () => {
 
             <div>
     
-      <div className="py-8 lg:py-16 grid lg:grid-cols-2 gap-12 items-center"  data-aos="fade-up">
+      <div className="px-[12px] py-8 lg:py-16 grid lg:grid-cols-2 gap-12 items-center"  data-aos="fade-up">
         
        
         <div>
@@ -51,7 +51,7 @@ const NewLeft = () => {
           </ul>
 
    
-          <Link
+          <Link to='/about'
             className="border border-white rounded-xl py-3 px-8 text-center font-semibold 
                        hover:bg-white hover:text-black transition-colors"
           >

@@ -29,7 +29,7 @@ const Header = () => {
 
     const navMenu = (
   <>
-  <div className='space-x-6 text-[15px] font-medium text-white'>
+  <div className='space-x-6 text-[15px] font-medium sm:text-white text-black sm:block flex flex-col'>
 <NavLink to='/' >Home</NavLink>
 <NavLink  to='/all-services' >All Services</NavLink>
 <NavLink  to='/about' >About</NavLink>
@@ -67,16 +67,44 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end text-white">
-{
-  user ? (<>
-  <RxAvatar className='text-[45px] mr-[10px] text-black text-white' />
-  <button onClick={handleLogOut} className='border cursor-pointer border-yellow-500 rounded-lg sm:px-[35px] py-2 hover:bg-yellow-500 hover:text-black text-[15px]'>Sign Out</button>
-  </> ) : (<>
-  <Link to='/auth/login' className="px-3 py-2 text-[15px] cursor-pointer">Sign In</Link>
-<Link to='/auth/register' className="border cursor-pointer border-yellow-500 rounded-lg sm:px-[35px] py-2 hover:bg-yellow-500 hover:text-black text-[15px]">Register</Link>
-  
-  </>)    
-}
+ {user ? (
+    user.photoURL ? (
+      <img
+        src={user.photoURL}
+        alt="Profile"
+        className="w-12 h-12 rounded-full border-2 border-yellow-500 object-cover mr-[7px]"
+      />
+    ) : (
+      <div className="w-12 h-12 sm:flex items-center justify-center rounded-full border-2 border-yellow-500 bg-gray-200  mr-[7px] hidden ">
+        <RxAvatar className="text-gray-400 w-8 h-8" />
+      </div>
+    )
+  ) : null}
+
+  {/* Buttons */}
+  {user ? (
+    <button
+      onClick={handleLogOut}
+      className="border cursor-pointer border-yellow-500 rounded-lg px-2 sm:px-4 py-2 hover:bg-yellow-500 hover:text-black text-[15px]"
+    >
+      Sign Out
+    </button>
+  ) : (
+    <>
+      <Link
+        to="/auth/login"
+        className="px-3 py-2 text-[15px] cursor-pointer"
+      >
+        Sign In
+      </Link>
+      <Link
+        to="/auth/register"
+        className="border cursor-pointer border-yellow-500 rounded-lg sm:px-4 py-2 hover:bg-yellow-500 hover:text-black text-[15px]"
+      >
+        Register
+      </Link>
+    </>
+  )}
   </div>
 </div>
 

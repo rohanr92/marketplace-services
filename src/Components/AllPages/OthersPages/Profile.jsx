@@ -1,31 +1,117 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import Container from '../../Container/Container';
+import { AuthContext } from '../../Provider/AuthContext';
+import { RxAvatar } from 'react-icons/rx';
 
 const Profile = () => {
-    return (
-        <div>
-             <div className='bg-gray-100'>
-            
- <Container>
+  const { user, setUser, loading, updatedProfile } = useContext(AuthContext);
+  const [editMode, setEditMode] = useState(false);
 
-                <div className="flex items-center justify-center min-h-screen ">
-                   
-      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
-        
+    if (loading || !user) {
+    return <div className="flex justify-center items-center min-h-screen">Loading...</div>;
+  }
 
-      </div>
-      
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const handleEdit = () => setEditMode(true);
+
+  const handleSave = () => {
+    updatedProfile(user.displayName, user.photoURL)
+      .then(() => {
+        setEditMode(false);
+        alert("Profile updated successfully!");
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Failed to update profile: " + err.message);
+      });
+  };
+
+
+
+  return (
+    <div className="bg-gray-100 min-h-screen">
+      <Container>
+        <div className="flex justify-center pt-12 items-center min-h-screen">
+          <div className="bg-white shadow-xl rounded-2xl w-full max-w-md p-6">
+
+           
+
+
+            <div className="flex justify-center mb-6">
+              {user.photoURL ? (
+                <img
+                  src={user.photoURL}
+                  alt="Profile"
+                  className="w-32 h-32 rounded-full border-4 border-yellow-500 object-cover"
+                />
+              ) : (
+                <div className="w-32 h-32 flex items-center justify-center rounded-full border-4 border-yellow-500 bg-gray-200">
+                  <RxAvatar className="text-gray-400 w-16 h-16" />
+                </div>
+              )}
+            </div>
+
+            <h2 className="text-2xl font-bold text-center mb-6">User Profile</h2>
+
+            <div className="space-y-4">
+              {editMode ? (
+                <>
+              
+              
+                  <input
+                    type="text"
+                    name="photoURL"
+                    value={user.photoURL || ""}
+                    onChange={handleChange}
+                    placeholder="Profile Image URL"
+                    className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  />
+                  <input
+                    type="text"
+                    name="displayName"
+                    value={user.displayName || ""}
+                    onChange={handleChange}
+                    placeholder="Name"
+                    className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  />
+                  <textarea
+                    name="bio"
+                    value={user.bio || ""}
+                    onChange={handleChange}
+                    placeholder="Bio"
+                    className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  />
+                  <button
+                    onClick={handleSave}
+                    className="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition font-semibold"
+                  >
+                    Save
+                  </button>
+                </>
+              ) : (
+                <>
+                  
+
+                  <p className="text-center font-semibold text-lg">{user.displayName}</p>
+                  <p className="text-center text-gray-600 mb-4">{user.bio}</p>
+                  <button
+                    onClick={handleEdit}
+                    className="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition font-semibold"
+                  >
+                    Edit Profile
+                  </button>
+                </>
+              )}
+            </div>
+
+          </div>
+        </div>
+      </Container>
     </div>
-
-    </Container>
-
-
-
-            
-            
-        </div>
-        </div>
-    );
+  );
 };
 
 export default Profile;

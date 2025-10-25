@@ -10,6 +10,7 @@ import DetailsPage from '../AllPages/OthersPages/DetailsPage/DetailsPage';
 import Profile from '../AllPages/OthersPages/Profile';
 import PrivateRoute from '../PrivateRoute/PrivateROute';
 import Forgot from '../AllPages/Security/Forgot';
+import AboutUs from '../AllPages/OthersPages/AboutUs';
 
 const router = createBrowserRouter([
   {
@@ -18,8 +19,10 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path:'/all-services', Component: AllServices },
+      { path: '/about', Component: AboutUs },
       { path: '/all-services/:skillId', element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>},
-      { path: '/profile', Component: Profile },
+      { path: '/profile', element: <PrivateRoute><Profile></Profile></PrivateRoute> },
+   
 
     ],
   },
