@@ -2,11 +2,13 @@ import React, { use, useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthContext';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router';
 
 const Forgot = () => {
 
     const { user, loading, forgotPass } = use(AuthContext);
     const [message, setMessage] = useState('');
+    // let navigate = useNavigate();
 
 
   if(loading) {
@@ -25,6 +27,7 @@ const Forgot = () => {
             e.target.reset();
             setMessage('Check your email to reset your password.');
             toast.success('Check your email to reset your password.');
+             window.location.href = 'https://mail.google.com/';
   })
   .catch((error) => {
     alert(error.message);

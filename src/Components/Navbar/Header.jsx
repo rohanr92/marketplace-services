@@ -70,18 +70,25 @@ const Header = () => {
   </div>
   <div className="navbar-end text-white">
  {user ? (
-    user.photoURL ? (
+  <div className="relative group mr-[7px]">
+    {user.photoURL ? (
       <img
         src={user.photoURL}
         alt="Profile"
-        className="w-12 h-12 rounded-full border-2 border-yellow-500 object-cover mr-[7px]"
+        className="w-12 h-12 rounded-full border-2 border-yellow-500 object-cover"
       />
     ) : (
-      <div className="w-12 h-12 sm:flex items-center justify-center rounded-full border-2 border-yellow-500 bg-gray-200  mr-[7px] hidden ">
+      <div className="w-12 h-12 sm:flex items-center justify-center rounded-full border-2 border-yellow-500 bg-gray-200 hidden">
         <RxAvatar className="text-gray-400 w-8 h-8" />
       </div>
-    )
-  ) : null}
+    )}
+
+   
+    <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-sm bg-black text-white rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+      {user.displayName || "User"}
+    </span>
+  </div>
+) : null}
 
   {/* Buttons */}
   {user ? (

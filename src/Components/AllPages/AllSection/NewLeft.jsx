@@ -20,7 +20,7 @@ const NewLeft = () => {
        
         <div>
           <p className="font-semibold text-sm mb-2 opacity-90">
-            We're expanding day by day
+            See How It Works
           </p>
           <h1 className="text-4xl lg:text-5xl font-medium mb-4">
             Global Trust of 1 Million Businesses and Counting

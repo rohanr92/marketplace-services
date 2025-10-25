@@ -68,19 +68,26 @@ const NewHeader = () => {
 <div className="navbar-end text-black flex items-center gap-3">
 
 
-  {user ? (
-    user.photoURL ? (
+{user ? (
+  <div className="relative group mr-[7px]">
+    {user.photoURL ? (
       <img
         src={user.photoURL}
         alt="Profile"
         className="w-12 h-12 rounded-full border-2 border-yellow-500 object-cover"
       />
     ) : (
-      <div className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-yellow-500 bg-gray-200">
-        <RxAvatar className="text-gray-400 w-6 h-6" />
+      <div className="w-12 h-12 sm:flex items-center justify-center rounded-full border-2 border-yellow-500 bg-gray-200 hidden">
+        <RxAvatar className="text-gray-400 w-8 h-8" />
       </div>
-    )
-  ) : null}
+    )}
+
+   
+    <span className="absolute  px-2 py-1 text-sm bg-black text-white rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+      {user.displayName || "User"}
+    </span>
+  </div>
+) : null}
 
   
   {user ? (
