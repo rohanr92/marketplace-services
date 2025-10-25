@@ -64,10 +64,10 @@ const Banner = () => {
         </h1>
 
         <div className="flex justify-center gap-4">
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition">
+          <button className="bg-yellow-500 cursor-pointer hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition">
             Get Started
           </button>
-          <button className="border border-white/70 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
+          <button className="border border-white/70 cursor-pointer text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
             Learn More
           </button>
         </div>

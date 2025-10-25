@@ -7,6 +7,9 @@ import Login from '../AllPages/Security/Login';
 import Register from '../AllPages/Security/Register';
 import AllServices from '../AllPages/OthersPages/AllServices';
 import DetailsPage from '../AllPages/OthersPages/DetailsPage/DetailsPage';
+import Profile from '../AllPages/OthersPages/Profile';
+import PrivateRoute from '../PrivateRoute/PrivateROute';
+import Forgot from '../AllPages/Security/Forgot';
 
 const router = createBrowserRouter([
   {
@@ -15,7 +18,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path:'/all-services', Component: AllServices },
-      { path: '/all-services/:skillId', Component: DetailsPage},
+      { path: '/all-services/:skillId', element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>},
+      { path: '/profile', Component: Profile },
 
     ],
   },
@@ -31,6 +35,10 @@ const router = createBrowserRouter([
         path: '/auth/Register',
         Component: Register,
       },
+      {
+        path: '/auth/forgot',
+        Component: Forgot,
+      }
     ],
   }
 ]);

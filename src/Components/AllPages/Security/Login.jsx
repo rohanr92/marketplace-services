@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { use } from 'react';
 import Container from '../../Container/Container';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { FaUser, FaLock } from 'react-icons/fa';
+import { AuthContext } from '../../Provider/AuthContext';
 
 const Login = () => {
 
+  const { user, setUser, login, loading } = use(AuthContext);
+
+  let location = useLocation();
+  let navigate = useNavigate();
+
+  if(loading) {
+   return <div className="min-h-screen flex justify-center items-center">
+    <span className="loading loading-infinity loading-xl text-yellow-500"></span>
+  </div>
+  }
+
 const handleSubmit = (event) => {
     event.preventDefault(); 
-    console.log('Login form submitted');
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    login(email, password)
+    .then((userCredential) => {
+
+      const users = userCredential.user;
+      setUser(users);
+      event.target.reset();
+      navigate(location?.state || '/');
+    })
+    .catch((error) => {
+      
+      // alert(error.message);
+    })
   };
 
     return (
@@ -88,9 +114,9 @@ const handleSubmit = (event) => {
               </label>
             </div>
 
-            <a href="#" className="font-medium text-yellow-500 hover:text-yellow-600">
+            <Link to='/auth/forgot' className="font-medium text-yellow-500 hover:text-yellow-600">
               Forgot your password?
-            </a>
+            </Link>
           </div>
 
          

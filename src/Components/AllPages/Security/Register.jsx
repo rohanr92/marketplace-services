@@ -1,32 +1,74 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router'; 
+import React, { use, useState } from 'react';
+import { Link, useNavigate } from 'react-router'; 
 import { FaUser, FaEnvelope, FaLock, FaGoogle, FaImage } from 'react-icons/fa6';
 import Container from '../../Container/Container';
+import { AuthContext } from '../../Provider/AuthContext';
 
 
 
 const RegisterPage = () => {
+
+    const { user, setUser, createUser, googleLogin, loading } = use(AuthContext);
+    let navigate = useNavigate();
+
+
+
   const [error, setError] = useState('');
+
+
+
+    if(loading) {
+   return <div className="min-h-screen flex justify-center items-center">
+    <span className="loading loading-infinity loading-xl text-yellow-500"></span>
+  </div>
+  }
+
 
   
   const handleSubmit = (event) => {
     event.preventDefault(); 
     
-    
-    const formData = new FormData(event.target);
 
     setError('');
+
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const imageUrl = event.target.imageUrl.value;
+    const password = event.target.password.value;
+
+    createUser(email, password)
+    .then((result) => {
+      setUser(result.user)
+      event.target.reset; 
+      alert('Account Successfully Created')
+      navigate('/profile')
+      
+    })
+    .catch((error) => {
+
+    const errorMessage = error.message;
+   
+    alert(errorMessage);
+
+  });
+
     
-    console.log('Registration form submitted');
-    console.log(Object.fromEntries(formData)); 
+    
   };
 
+    const googleSignUp = () => {
+    googleLogin()
+    .then((result) => {
+      setUser(result.user);
+      navigate('/profile')
+    })
+    .catch((error) => {
+      alert(error.message)
+    })
+  }
+
+
   
-  const handleGoogleSignUp = () => {
-  
-    console.log('Sign up with Google clicked');
-    setError(''); 
-  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 py-[80px]">
@@ -165,8 +207,8 @@ const RegisterPage = () => {
         
         <div>
           <button
+          onClick={googleSignUp}
             type="button"
-            onClick={handleGoogleSignUp}
             className="w-full flex items-center justify-center py-3 px-4 text-lg font-semibold text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
           >
             <FaGoogle className="w-5 h-5 mr-3 text-red-500" />
@@ -177,7 +219,7 @@ const RegisterPage = () => {
        
         <p className="text-sm text-center text-gray-600">
           Already have an account?{' '}
-          <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
+          <Link to="/auth/login" className="font-medium text-blue-600 hover:text-blue-500">
             Log in
           </Link>
         </p>

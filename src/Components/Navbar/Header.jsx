@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { use } from 'react';
 import Container from '../Container/Container';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import Logo from "../../assets/logo.svg"
 import "./Header.css"
+import { AuthContext } from '../Provider/AuthContext';
+import { RxAvatar } from 'react-icons/rx';
 
 
 const Header = () => {
+
+     const { user, setUser, logOut } = use(AuthContext);
+   let navigate = useNavigate();
+
+
+      const handleLogOut = () => {
+
+    logOut()
+    .then(() => {
+      setUser(null);
+      navigate('/')
+    }) 
+    .catch((error) => {
+      alert(error.message);
+    })
+   }
 
 
 
@@ -49,8 +67,16 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end text-white">
-    <button className="px-3 py-2 text-[15px] cursor-pointer">Sign In</button>
-<button className="border cursor-pointer border-white rounded-lg sm:px-[35px] py-2 hover:bg-white hover:text-black text-[15px]">Register</button>
+{
+  user ? (<>
+  <RxAvatar className='text-[45px] mr-[10px] text-black text-white' />
+  <button onClick={handleLogOut} className='border cursor-pointer border-yellow-500 rounded-lg sm:px-[35px] py-2 hover:bg-yellow-500 hover:text-black text-[15px]'>Sign Out</button>
+  </> ) : (<>
+  <Link to='/auth/login' className="px-3 py-2 text-[15px] cursor-pointer">Sign In</Link>
+<Link to='/auth/register' className="border cursor-pointer border-yellow-500 rounded-lg sm:px-[35px] py-2 hover:bg-yellow-500 hover:text-black text-[15px]">Register</Link>
+  
+  </>)    
+}
   </div>
 </div>
 
