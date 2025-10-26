@@ -4,7 +4,7 @@
 This app helps people find the freelancers they need. It makes it easier to connect with skilled professionals for various services.
 
 ## Live URL
-[Add your live URL here]
+marketplace-new-app.netlify.app
 
 ## Key Features
 - Access all marketplace services in one place
