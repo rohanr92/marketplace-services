@@ -13,8 +13,9 @@ marketplace-new-app.netlify.app
 - Interactive and animated UI for better user experience
 
 ## NPM Packages Used
-- `react-hot-toast` – for notifications
-- `AOS` – for scroll animations
-- `swiper` – for sliders and carousels
-- `marquee` – for scrolling text effects
+- `react-hot-toast`
+- `AOS` 
+- `swiper`
+- `marquee` 
+- `Framer`
 - And other supporting packages
