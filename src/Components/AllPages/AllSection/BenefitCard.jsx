@@ -7,7 +7,7 @@ import Aos from "aos";
 import 'aos/dist/aos.css';
 import { motion } from "framer-motion";
 import { fadeIn } from '../../../variants';
-import { fadeRight } from '../../../variants2'
+// import { fadeRight } from '../../../variants2'
 
 
 

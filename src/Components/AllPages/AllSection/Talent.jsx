@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '../../Container/Container';
-import icon1 from '../../../assets/icon1.png'
+import icon1 from '../../../assets/icon1.png';
+
 
 
 const Talent = () => {
@@ -8,6 +9,7 @@ const Talent = () => {
         <div className='bg-[#f7f7f8]'>
             <Container>
                 <div >
+
                     <div className='sm:flex sm:justify-between sm:space-y-[2px] space-y-[50px] py-[80px]' 
                     >
 
