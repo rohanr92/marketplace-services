@@ -75,12 +75,7 @@ const BenefitCard = () => {
             </motion.div>
 
 
-            <motion.div className="mt-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-
-              variants={fadeRight("right", 0.5)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, amount: 0.7 }}
+            <div className="mt-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
             >
 
               <div
@@ -176,7 +171,7 @@ const BenefitCard = () => {
                   </a>
                 </div>
               </div>
-          </motion.div>
+          </div>
         </div>
 
         

@@ -4,7 +4,7 @@ import { IoMdCheckmarkCircle } from 'react-icons/io';
 import { Link } from 'react-router';
 import { motion } from "framer-motion";
 import { fadeIn } from '../../../variants';
-import { fadeRight } from '../../../variants2';
+
 
 const TopRate = () => {
     return (
@@ -36,11 +36,8 @@ const TopRate = () => {
 
 
 
-                    <motion.div className="flex justify-center p-8"
-                        variants={fadeIn("right", 0.4)}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: false, amount: 0.7 }}
+                    <div className="flex justify-center p-8"
+              
 
 
                     >
@@ -137,7 +134,7 @@ const TopRate = () => {
                             </div>
 
                         </div>
-                    </motion.div>
+                    </div>
 
 
                 </div>
