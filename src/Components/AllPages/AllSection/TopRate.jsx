@@ -2,6 +2,9 @@ import React from 'react';
 import Container from '../../Container/Container';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 import { Link } from 'react-router';
+import { motion } from "framer-motion";
+import { fadeIn } from '../../../variants';
+import { fadeRight } from '../../../variants2';
 
 const TopRate = () => {
     return (
@@ -9,26 +12,41 @@ const TopRate = () => {
             <Container>
                 <div className='py-20'>
 
-                    <div className="text-center px-6" data-aos="fade-up">
+                    <motion.div className="text-center px-6"
+
+                        variants={fadeIn("up", 0.2)}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: false, amount: 0.7 }}
+
+
+                    >
                         <span className="bg-yellow-500 font-semibold text-sm px-4 py-2 rounded-full">
                             Featured Providers
                         </span>
                         <h2 className="mt-6 text-3xl md:text-4xl font-medium text-gray-900 tracking-tight">
-                            Find Most Popular Skills
+                            Find Most Talented Freelancers
                         </h2>
                         <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
                             Discover most-recent popular skill, that will help your business to lift up very quickly. Find your perfect soft skill partner.
                         </p>
-                    </div>
+                    </motion.div>
 
 
 
 
-                    
-                    <div className="flex justify-center p-8">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full max-w-[1200px]" data-aos="fade-up">
 
-                        
+                    <motion.div className="flex justify-center p-8"
+                        variants={fadeIn("right", 0.4)}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: false, amount: 0.7 }}
+
+
+                    >
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full max-w-[1200px]">
+
+
 
 
                             <div className="bg-white rounded-xl pb-[10px] shadow-md text-center flex flex-col items-center border border-amber-100 w-full sm:w-auto">
@@ -50,7 +68,7 @@ const TopRate = () => {
                                 </Link>
                             </div>
 
-                           
+
 
 
 
@@ -119,7 +137,7 @@ const TopRate = () => {
                             </div>
 
                         </div>
-                    </div>
+                    </motion.div>
 
 
                 </div>

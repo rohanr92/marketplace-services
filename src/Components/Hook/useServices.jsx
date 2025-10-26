@@ -9,7 +9,7 @@ const useServices = () => {
 
     useEffect(()=>{
 
-        axios('../../../public/data.json')
+        axios('../data.json')
         .then(response => {
                 setServices(response.data);
             })

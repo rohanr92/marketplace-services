@@ -3,6 +3,8 @@ import { FaCheckCircle, FaPlayCircle } from 'react-icons/fa';
 import { BsChatDots } from 'react-icons/bs';
 import { Link } from 'react-router';
 import Container from '../../Container/Container';
+import { motion } from "framer-motion";
+import { fadeIn } from '../../../variants';
 
 
 const NewLeft = () => {
@@ -15,41 +17,87 @@ const NewLeft = () => {
 
             <div>
     
-      <div className="px-[12px] py-8 lg:py-16 grid lg:grid-cols-2 gap-12 items-center"  data-aos="fade-up">
+      <div className="px-[12px] py-8 lg:py-16 grid lg:grid-cols-2 gap-12 items-center" >
         
        
         <div>
-          <p className="font-semibold text-sm mb-2 opacity-90">
+          <motion.p className="font-semibold text-sm mb-2 opacity-90"
+          variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.7 }}
+          
+          >
             See How It Works
-          </p>
-          <h1 className="text-4xl lg:text-5xl font-medium mb-4">
+          </motion.p>
+          <motion.h1 className="text-4xl lg:text-5xl font-medium mb-4"
+          
+          variants={fadeIn("up", 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.7 }}
+
+          >
             Global Trust of 1 Million Businesses and Counting
-          </h1>
-          <p className="text-lg mb-6 opacity-90">
+          </motion.h1>
+          <motion.p className="text-lg mb-6 opacity-90"
+           variants={fadeIn("up", 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.7 }}
+
+          >
             Connect with skilled professionals, streamline collaboration, and unlock
             success. Join now and redefine your work experience!
-          </p>
+          </motion.p>
 
  
           <ul className="space-y-3 mb-8">
-            <li className="flex items-center gap-2">
+            <motion.li className="flex items-center gap-2"
+            
+             variants={fadeIn("up", 0.4)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.7 }}
+>
               <FaCheckCircle />
               <span>Connect with pros collaborate better succeed faster</span>
-            </li>
-            <li className="flex items-center gap-2">
+            </motion.li>
+            <motion.li className="flex items-center gap-2"
+            
+              variants={fadeIn("up", 0.4)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.7 }}>
               <FaCheckCircle />
               <span>Redefine work. Join now for a better experience</span>
-            </li>
-            <li className="flex items-center gap-2">
+            </motion.li>
+            <motion.li className="flex items-center gap-2"
+            
+              variants={fadeIn("up", 0.4)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.7 }}>
               <FaCheckCircle />
               <span>Streamline collaboration unlock success</span>
-            </li>
-            <li className="flex items-center gap-2">
+            </motion.li>
+            <motion.li className="flex items-center gap-2"
+              variants={fadeIn("up", 0.4)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.7 }}>
               <FaCheckCircle />
               <span>Join us redefine your work experience</span>
-            </li>
+            </motion.li>
           </ul>
 
+
+<motion.div
+
+  variants={fadeIn("up", 0.4)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.7 }}>
    
           <Link to='/about'
             className="border border-white rounded-xl py-3 px-8 text-center font-semibold 
@@ -57,6 +105,9 @@ const NewLeft = () => {
           >
             Get Started
           </Link>
+
+</motion.div>
+
         </div>
 
        

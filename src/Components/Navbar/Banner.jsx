@@ -7,24 +7,21 @@ import 'aos/dist/aos.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { motion } from "framer-motion";
+import { fadeIn } from '../../../src/variants';
+
 
 import { Pagination } from 'swiper/modules';
 import { Link } from "react-router";
 
 const Banner = () => {
-    useEffect(()=> {
 
-       Aos.init({
-    duration: 4000,
-    once: true,  
-  });
 
-    }, [])
   return (
     <div >
       <Header />
 
-              <Swiper
+      <Swiper
         spaceBetween={30}
         pagination={{
           clickable: true,
@@ -33,136 +30,142 @@ const Banner = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-            
- <section className="relative h-[650px] flex items-center justify-center text-center overflow-hidden">
-        <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source
-          src={bannerVideo}
-          type="video/mp4"
-        />
-      </video>
+
+          <section className="relative h-[650px] flex items-center justify-center text-center overflow-hidden">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source
+                src={bannerVideo}
+                type="video/mp4"
+              />
+            </video>
 
 
-      <div className="absolute inset-0 bg-[#2e1e11]/60"></div>
+            <div className="absolute inset-0 bg-[#2e1e11]/60"></div>
 
 
 
 
- 
-      <div className="relative z-10 text-white w-10/12 mx-auto mt-[20px] sm:mt-[80px]" data-aos="fade-up">
-        <p className="text-yellow-400 font-semibold text-lg mb-3">
-          Creative Freelance Marketplace
-        </p>
 
-        <h1 className="text-4xl md:text-[50px] font-medium mb-6 leading-tight">
-          Grow Business With <br /> <span className="font-surfer">Freelance Marketplace </span>  <br /> Solutions
-        </h1>
+            <motion.div
+              variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.7 }}
 
-        <div className="flex justify-center gap-4">
-          <Link to='/about' className="bg-yellow-500 cursor-pointer hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition  text-[12px] sm:text-[18px]">
-            Get Started
-          </Link>
-          <Link to='/about' className="border border-white/70 cursor-pointer text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition   text-[12px] sm:text-[18px]">
-            Learn More
-          </Link>
-        </div>
-      </div>
-    </section>
+              className="relative z-10 text-white w-10/12 mx-auto mt-[20px] sm:mt-[80px]" >
+              <p className="text-yellow-400 font-semibold text-lg mb-3">
+                Creative Freelance Marketplace
+              </p>
+
+              <h1 className="text-4xl md:text-[50px] font-medium mb-6 leading-tight">
+                Grow Business With <br /> <span className="font-surfer">Freelance Marketplace </span>  <br /> Solutions
+              </h1>
+
+              <div className="flex justify-center gap-4">
+                <Link to='/about' className="bg-yellow-500 cursor-pointer hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition  text-[12px] sm:text-[18px]">
+                  Get Started
+                </Link>
+                <Link to='/about' className="border border-white/70 cursor-pointer text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition   text-[12px] sm:text-[18px]">
+                  Learn More
+                </Link>
+              </div>
+            </motion.div>
+          </section>
         </SwiperSlide>
         <SwiperSlide>
 
- <section className="relative h-[650px] flex items-center justify-center text-center overflow-hidden">
-        <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source
-          src={bannerVideo}
-          type="video/mp4"
-        />
-      </video>
+          <section className="relative h-[650px] flex items-center justify-center text-center overflow-hidden">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source
+                src={bannerVideo}
+                type="video/mp4"
+              />
+            </video>
 
 
-      <div className="absolute inset-0 bg-[#2e1e11]/60"></div>
+            <div className="absolute inset-0 bg-[#2e1e11]/60"></div>
 
 
 
 
- 
-      <div className="relative z-10 text-white w-10/12 mx-auto sm:mt-[80px]" data-aos="fade-up">
-        <p className="text-yellow-400 font-semibold text-lg mb-3">
-          Creative Freelance Marketplace
-        </p>
 
-        <h1 className="text-4xl md:text-[50px] font-medium mb-6 leading-tight">
-          Grow Business With <br /> <span className="font-surfer">Freelance Marketplace </span>  <br /> Solutions
-        </h1>
+            <div className="relative z-10 text-white w-10/12 mx-auto sm:mt-[80px]" >
+              <p className="text-yellow-400 font-semibold text-lg mb-3">
+                Creative Freelance Marketplace
+              </p>
 
-        <div className="flex justify-center gap-4">
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition">
-            Get Started
-          </button>
-          <button className="border border-white/70 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
-            Learn More
-          </button>
-        </div>
-      </div>
-    </section>
+              <h1 className="text-4xl md:text-[50px] font-medium mb-6 leading-tight">
+                Grow Business With <br /> <span className="font-surfer">Freelance Marketplace </span>  <br /> Solutions
+              </h1>
+
+              <div className="flex justify-center gap-4">
+                <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition">
+                  Get Started
+                </button>
+                <button className="border border-white/70 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </section>
         </SwiperSlide>
         <SwiperSlide>
 
- <section className="relative h-[650px] flex items-center justify-center text-center overflow-hidden">
-        <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source
-          src={bannerVideo}
-          type="video/mp4"
-        />
-      </video>
+          <section className="relative h-[650px] flex items-center justify-center text-center overflow-hidden">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source
+                src={bannerVideo}
+                type="video/mp4"
+              />
+            </video>
 
 
-      <div className="absolute inset-0 bg-[#2e1e11]/60"></div>
+            <div className="absolute inset-0 bg-[#2e1e11]/60"></div>
 
 
 
 
- 
-      <div className="relative z-10 text-white w-10/12 mx-auto sm:mt-[80px]" data-aos="fade-up">
-        <p className="text-yellow-400 font-semibold text-lg mb-3">
-          Creative Freelance Marketplace
-        </p>
 
-        <h1 className="text-4xl md:text-[50px] font-medium mb-6 leading-tight">
-          Grow Business With <br /> <span className="font-surfer">Freelance Marketplace </span>  <br /> Solutions
-        </h1>
+            <div className="relative z-10 text-white w-10/12 mx-auto sm:mt-[80px]">
+              <p className="text-yellow-400 font-semibold text-lg mb-3">
+                Creative Freelance Marketplace
+              </p>
 
-        <div className="flex justify-center gap-4">
-          <button className="bg-yellow-500 text-[] hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition">
-            Get Started
-          </button>
-          <button className="border border-white/70 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
-            Learn More
-          </button>
-        </div>
-      </div>
-    </section>
+              <h1 className="text-4xl md:text-[50px] font-medium mb-6 leading-tight">
+                Grow Business With <br /> <span className="font-surfer">Freelance Marketplace </span>  <br /> Solutions
+              </h1>
+
+              <div className="flex justify-center gap-4">
+                <button className="bg-yellow-500 text-[] hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-lg transition">
+                  Get Started
+                </button>
+                <button className="border border-white/70 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </section>
         </SwiperSlide>
       </Swiper>
-   
+
     </div>
   );
 };

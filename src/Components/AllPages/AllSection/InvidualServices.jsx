@@ -11,7 +11,7 @@ const InvidualServices = ({service}) => {
     
     return (
         <div className='transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 rounded-2xl'>
-            <div className='p-[10px] border border-[#eee] rounded-2xl '  data-aos="fade-up">
+            <div className='p-[10px] border border-[#eee] rounded-2xl ' >
 
                 <div className='w-full h-[240px]'>
                     <img src={image} alt={skillName} className='w-full h-full object-cover  rounded-2xl' />
