@@ -17,7 +17,7 @@ const DetailsPage = () => {
         submitted: false,
 
     });
-    console.log(formData);
+    // console.log(formData);
 
 
 

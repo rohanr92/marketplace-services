@@ -1,12 +1,12 @@
 import React, { useState,  use } from 'react';
 import Container from '../../Container/Container';
 import { Link, useLocation, useNavigate } from 'react-router';
-import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaUser, FaLock, FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthContext';
 import toast from 'react-hot-toast';
 
 const Login = () => {
-  const { user, setUser, login, loading } = use(AuthContext);
+  const { user, setUser, login, loading, googleLogin } = use(AuthContext);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -39,6 +39,19 @@ const Login = () => {
         setError("Invalid Email Or Password");
       });
   };
+
+
+      const googleSignUp = () => {
+        googleLogin()
+            .then((result) => {
+                setUser(result.user);
+                toast.success('Logged In Successfully')
+                navigate('/')
+            })
+            .catch((error) => {
+                toast.error(error.message)
+            })
+    }
 
   return (
     <div className='bg-gray-100 px-[15px]'>
@@ -133,6 +146,20 @@ const Login = () => {
                 Sign up
               </Link>
             </p>
+
+
+
+
+                        <div>
+                            <button
+                                onClick={googleSignUp}
+                                type="button"
+                                className="w-full flex items-center justify-center py-3 px-4 text-[13px] sm:text-lg font-semibold text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition-colors"
+                            >
+                                <FaGoogle className="w-5 h-5 mr-3 text-red-500" />
+                                Sign In with Google
+                            </button>
+                        </div>
           </div>
         </div>
       </Container>

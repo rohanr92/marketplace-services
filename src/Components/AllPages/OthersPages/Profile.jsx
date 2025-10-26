@@ -25,7 +25,7 @@ const Profile = () => {
         toast.success("Profile updated successfully!");
       })
       .catch((err) => {
-        console.error(err);
+        // console.error(err);
         toast.error("Failed to update profile: " + err.message);
       });
   };
@@ -78,6 +78,13 @@ const Profile = () => {
                     placeholder="Name"
                     className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   />
+                  <input
+                    type="email"
+                    name="email"
+                    value={user.email || ""}
+                    readOnly
+                    className="w-full p-2 border rounded-lg bg-gray-100 text-gray-600 cursor-not-allowed"
+                  />
                   <textarea
                     name="bio"
                     value={user.bio || ""}
@@ -97,6 +104,7 @@ const Profile = () => {
                   
 
                   <p className="text-center font-semibold text-lg">{user.displayName}</p>
+                  <p className="text-center text-gray-600">{user.email}</p>
                   <p className="text-center text-gray-600 mb-4">{user.bio}</p>
                   <button
                     onClick={handleEdit}

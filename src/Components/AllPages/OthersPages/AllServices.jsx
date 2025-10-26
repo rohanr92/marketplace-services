@@ -1,10 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '../../Container/Container';
 import useServices from '../../Hook/useServices';
 import ServicesMap from './ServicesMap';
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const AllServices = () => {
+
+          
+useEffect(() => {
+  Aos.init({
+    duration: 1200,
+    once: false, 
+  });
+}, []);
+
+useEffect(() => {
+  const handleScroll = () => {
+    Aos.refresh(); 
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+
 
         const { services, loading, errors } = useServices();
         let [final, setFinal] = useState([]);
@@ -36,11 +57,13 @@ return (
             setFinal(filteredServices)
         }
 
-        console.log(final);
+        // console.log(final);
 
 
         const displayedServices = searches.trim() !== '' ? final : services;
-        
+
+
+
 
 
     return (
@@ -51,7 +74,7 @@ return (
       <div className="max-w-7xl mx-auto">
         
 
-        <div className="text-center">
+        <div className="text-center" data-aos="fade-up" data-aos-once="false">
           <h2 className="mt-6 text-3xl md:text-4xl font-medium text-gray-900 tracking-tight">
             All Of Our Services
           </h2>
@@ -86,7 +109,7 @@ return (
 
 
 {
-    displayedServices.length === 0 ? <h2 className='text-center p-[40px] text-[25px] font-medium'>No products found</h2> :   <div className='grid sm:grid-cols-3 gap-[20px] py-[20px]'>
+    displayedServices?.length === 0 ? <h2 className='text-center p-[40px] text-[25px] font-medium'>No products found</h2> :   <div className='grid sm:grid-cols-3 gap-[20px] py-[20px]'>
             {
                 displayedServices?.map(services => <ServicesMap key={services.skillId} services={services}></ServicesMap>)
             }
